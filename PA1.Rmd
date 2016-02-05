@@ -10,7 +10,7 @@ opts_chunk$set(echo = TRUE)
 
 activity <- read.csv("activity.csv", colClass=c('integer', 'Date', 'integer'))
 
-#What is mean total number of steps taken per day?
+# What is mean total number of steps taken per day?
 
 steps.date <- aggregate(steps ~ date, activity, sum)
 
@@ -22,10 +22,10 @@ mean(steps.date$steps)
 
 median(steps.date$steps)
 
-#What is the average daily activity pattern?
+# What is the average daily activity pattern?
 
 steps.interval <- aggregate(steps ~ interval, activity, mean)
-plot(steps.interval, type='l')
+plot(steps.interval, type='l', col = 'blue')
 
 steps.interval$interval[which.max(steps.interval$steps)]
 
@@ -48,7 +48,7 @@ mean(steps.date$steps)
 
 median(steps.date$steps)
 
-#Are there differences in activity patterns between weekdays and weekends?
+# Are there differences in activity patterns between weekdays and weekends?
 
 
 day <- function(dates) {

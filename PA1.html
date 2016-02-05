@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title>Imputing missing values</title>
+<title>What is mean total number of steps taken per day?</title>
 
 <script type="text/javascript">
 window.onload = function() {
@@ -175,7 +175,7 @@ opts_chunk$set(echo = TRUE)</p>
 
 <p>activity &lt;- read.csv(&ldquo;activity.csv&rdquo;, colClass=c(&#39;integer&#39;, &#39;Date&#39;, &#39;integer&#39;))</p>
 
-<p>#What is mean total number of steps taken per day?</p>
+<h1>What is mean total number of steps taken per day?</h1>
 
 <p>steps.date &lt;- aggregate(steps ~ date, activity, sum)</p>
 
@@ -187,10 +187,10 @@ opts_chunk$set(echo = TRUE)</p>
 
 <p>median(steps.date$steps)</p>
 
-<p>#What is the average daily activity pattern?</p>
+<h1>What is the average daily activity pattern?</h1>
 
 <p>steps.interval &lt;- aggregate(steps ~ interval, activity, mean)
-plot(steps.interval, type=&#39;l&#39;)</p>
+plot(steps.interval, type=&#39;l&#39;, col = &#39;blue&#39;)</p>
 
 <p>steps.interval$interval[which.max(steps.interval$steps)]</p>
 
@@ -213,7 +213,7 @@ barplot(steps.date$steps, names.arg=steps.date$date, ylim=c(0, 25000),
 
 <p>median(steps.date$steps)</p>
 
-<p>#Are there differences in activity patterns between weekdays and weekends?</p>
+<h1>Are there differences in activity patterns between weekdays and weekends?</h1>
 
 <p>day &lt;- function(dates) {
   f &lt;- function(date) {
