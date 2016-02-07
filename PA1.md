@@ -1,14 +1,17 @@
-installed.packages("knitr")
-library(knitr)
 
+```{r, echo= TRUE}
+
+# Load Libraries
+
+library(knitr)
 library(dplyr)
-
 library(ggplot2)
-
 library(knitr)
-opts_chunk$set(echo = TRUE)
+library(lattice)
 
-activity <- read.csv("activity.csv", colClass=c('integer', 'Date', 'integer'))
+# Reading the File
+
+activity <- read.csv("D:/RCoursera/Reproducible Research/Week1/Data/activity.csv", colClass=c('integer', 'Date', 'integer'))
 
 # What is mean total number of steps taken per day?
 
@@ -16,7 +19,7 @@ steps.date <- aggregate(steps ~ date, activity, sum)
 
 head(steps.date)
 
-barplot(steps.date$steps, names.arg=steps.date$date, ylim=c(0, 25000), xlab="date", ylab="sum(steps)",col = 'Red')
+barplot(steps.date$steps, names.arg=steps.date$date, ylim=c(0, 25000), xlab="date",ylab="sum(steps)",col = 'Red')
 
 mean(steps.date$steps)
 
@@ -41,8 +44,7 @@ activity.clean <- activity.clean[, c(1:3)]
 head(activity.clean)
 
 steps.date <- aggregate(steps ~ date, activity.clean, sum)
-barplot(steps.date$steps, names.arg=steps.date$date, ylim=c(0, 25000), 
-        xlab="date", ylab="sum(steps)",, col = 'red')
+barplot(steps.date$steps, names.arg=steps.date$date, ylim=c(0, 25000), xlab="date", ylab="sum(steps)",, col = 'red')
 
 mean(steps.date$steps)
 
@@ -66,7 +68,9 @@ day <- function(dates) {
 activity$day <- as.factor(day(activity$date))
 str(activity)
 
-library(lattice)
+
 
 steps.interval <- aggregate(steps ~ interval + day, activity, mean)
 xyplot(steps ~ interval | day, data=steps.interval, layout=c(2,1), type='l')
+
+```
