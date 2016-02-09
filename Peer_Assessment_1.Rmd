@@ -1,6 +1,6 @@
 ---
 title: "Peer_Asssessment"
-output: word_document
+output: html_document
 ---
 
 ```{r,}
@@ -27,11 +27,13 @@ steps.date <- aggregate(steps ~ date, activity, sum)
 head(steps.date)
 
 barplot(steps.date$steps, names.arg=steps.date$date, ylim=c(0, 25000), xlab="date",ylab="sum(steps)",col = 'Red')
+```
 
-# Mean 
+```{r}
 mean(steps.date$steps)
+```
 
-# Median
+```{r}
 median(steps.date$steps)
 ```
 
@@ -40,11 +42,13 @@ median(steps.date$steps)
 
 steps.interval <- aggregate(steps ~ interval, activity, mean)
 plot(steps.interval, type='l', col = 'blue')
+```
 
-# Max Value
+```{r}
 Max.value <- steps.interval$interval[which.max(steps.interval$steps)]
 
 ```
+
 ```{r}
 # Imputing missing values
 
@@ -61,10 +65,10 @@ steps.date <- aggregate(steps ~ date, activity.clean, sum)
 
 barplot(steps.date$steps, names.arg=steps.date$date, ylim=c(0, 25000), xlab="date", ylab="sum(steps)",col = 'blue')
 
-# Mean 
+
 mean(steps.date$steps)
 
-# Median
+
 median(steps.date$steps)
 ```
 
