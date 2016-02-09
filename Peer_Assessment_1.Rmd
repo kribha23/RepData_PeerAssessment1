@@ -15,7 +15,7 @@ library(lattice)
 
 ```
 
-```{r,}
+```{r, echo=TRUE}
 # Reading the File
 
 activity <- read.csv("D:/RCoursera/Reproducible Research/Week1/Data/activity.csv", colClass=c('integer', 'Date', 'integer'))
