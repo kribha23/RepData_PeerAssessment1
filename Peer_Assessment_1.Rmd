@@ -1,6 +1,6 @@
 ---
 title: "Peer_Asssessment"
-output: html_document
+output: word_document
 ---
 
 ```{r,}
@@ -15,7 +15,7 @@ library(lattice)
 
 ```
 
-```{r, echo=TRUE}
+```{r}
 # Reading the File
 
 activity <- read.csv("D:/RCoursera/Reproducible Research/Week1/Data/activity.csv", colClass=c('integer', 'Date', 'integer'))
@@ -35,7 +35,7 @@ mean(steps.date$steps)
 median(steps.date$steps)
 ```
 
-```{r,}
+```{r}
 # What is the average daily activity pattern?
 
 steps.interval <- aggregate(steps ~ interval, activity, mean)
@@ -45,8 +45,7 @@ plot(steps.interval, type='l', col = 'blue')
 Max.value <- steps.interval$interval[which.max(steps.interval$steps)]
 
 ```
-
-```{r,}
+```{r}
 # Imputing missing values
 
 sum(is.na(activity$steps))
@@ -69,7 +68,7 @@ mean(steps.date$steps)
 median(steps.date$steps)
 ```
 
-```{r,}
+```{r}
 # Are there differences in activity patterns between weekdays and weekends?
 
 
